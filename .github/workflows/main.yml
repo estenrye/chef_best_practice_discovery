@@ -34,5 +34,5 @@ jobs:
 
       - name: run inspec
         run: |
-          inspec --chef-license=accept vendor ./ --overwrite
-          inspec --chef-license=accept check ./
+          inspec vendor ./ --overwrite --chef-license=accept 
+          inspec check ./ --chef-license=accept 
