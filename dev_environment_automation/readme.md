@@ -2,10 +2,10 @@
 
 ## Getting Started
 
-Install pip if not installed
+Install python and pip if not installed
 
 ```bash
-apt install -y python3-pip
+apt install -y python3 python3-pip
 ```
 
 Install Ansible
