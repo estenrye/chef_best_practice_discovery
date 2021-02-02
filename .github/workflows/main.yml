@@ -31,3 +31,8 @@ jobs:
           channel: current
           project: chef-workstation
           version: latest
+
+      - name: run inspec
+        run: |
+          inspec vendor ./ --overwrite
+          inspec check ./
