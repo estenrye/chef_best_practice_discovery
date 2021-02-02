@@ -34,5 +34,6 @@ jobs:
 
       - name: run inspec
         run: |
-          inspec vendor ./inspec_profiles/org_sandbox_ip --overwrite --chef-license=accept 
-          inspec check ./inspec_profiles/org_sandbox_ip --chef-license=accept
+          cd inspec_profiles/org_sandbox_ip
+          inspec vendor ./ --overwrite --chef-license=accept 
+          inspec check ./ --chef-license=accept
