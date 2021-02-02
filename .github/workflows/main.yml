@@ -33,6 +33,4 @@ jobs:
           version: latest
 
       - name: run inspec
-        run: |
-          inspec vendor inspec_profiles/org_sandbox_ip --overwrite --chef-license=accept 
-          inspec check inspec_profiles/org_sandbox_ip --chef-license=accept
+        run: scripts/check_profiles.sh inspec_profiles/*
