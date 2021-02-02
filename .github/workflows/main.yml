@@ -34,4 +34,4 @@ jobs:
         run: pip3 install -r dev_environment_automation/requirements.txt
       
       - name: Run Dev Environment Playbook
-        run: ~/.local/bin/ansible-playbook --become dev_environment_automation/playbook.yml
+        run: ~/.local/bin/ansible-playbook dev_environment_automation/playbook.yml
