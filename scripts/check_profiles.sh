@@ -1,5 +1,8 @@
 #!/bin/bash
 set -e
 
-inspec vendor $@ --overwrite --chef-license=accept 
+DIR="`dirname \"$0\"`"
+
+cookstyle $@ -c "${DIR}/../.rubocop.yml"
+inspec vendor $@ --overwrite --chef-license=accept
 inspec check $@ --chef-license=accept

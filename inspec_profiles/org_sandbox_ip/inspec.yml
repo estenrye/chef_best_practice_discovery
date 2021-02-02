@@ -1,10 +1,11 @@
 name: org_sandbox_ip
-title: InSpec Profile
-maintainer: The Authors
-copyright: The Authors
-copyright_email: you@example.com
+title: Checks for sandbox
+maintainer: Esten Rye
+copyright: Esten Rye
+copyright_email: esten.rye+copyright@ryezone.com
 license: Apache-2.0
 summary: An InSpec Compliance Profile
 version: 0.1.0
 supports:
-  platform: os
+  platform-family: windows
+  platform-family: linux
