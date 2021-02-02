@@ -1,0 +1,30 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  vars:
+    versions:
+      chef_workstation:
+        version: 21.1.233
+        checksum: sha256:b7bc0fe928bce6d8b588c9af90776aafe00e578a02824a824e5d722e94457b5e
+    downloads:
+      - url: https://packages.chef.io/files/stable/chef-workstation/{{ versions.chef_workstation.version }}/ubuntu/{{ ansible_distribution_version }}/chef-workstation_{{ versions.chef_workstation.version }}-1_amd64.deb
+        checksum: "{{ versions.chef_workstation.checksum }}"
+        dest: "{{ ansible_env.HOME }}/.local/bin/chef_workstation.deb"
+        mode: u+x
+    deb_files:
+      - "{{ ansible_env.HOME }}/.local/bin/chef_workstation.deb"
+  tasks:
+    - name: Download local binaries
+      get_url:
+        checksum: "{{ item.checksum }}"
+        url: "{{ item.url }}"
+        dest: "{{ item.dest }}"
+        mode: "{{ item.mode }}"
+      loop: "{{ downloads }}"
+    - name: Install deb files
+      apt:
+        deb: "{{ item }}"
+        state: present
+      loop: "{{ deb/files }}"
+        
